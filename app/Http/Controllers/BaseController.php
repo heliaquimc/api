@@ -8,9 +8,13 @@ abstract class BaseController
 {
     protected $class;
 
-    public function index()
+    public function index(Request $request)
     {
-        return response()->json($this->class::all(),200);
+        return response()
+            ->json(
+                $this->class::paginate($request->per_page),
+                200
+            );
     }
 
     public function store(Request $request)

@@ -23,6 +23,7 @@ $router->group(['prefix' => 'api'], function() use($router) {
         $router->put('{id}',    'SeriesController@update');
         $router->post('',       'SeriesController@store');
         $router->get('',        'SeriesController@index');
+        $router->get('{serieId}/episodios', 'EpisodiosController@buscaPorSerie');
     });
 
     $router->group(['prefix' => 'episodios'], function () use($router){
